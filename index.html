@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Boat Inn — Canal-Side Pub · Loughborough</title>
+<meta name="description" content="The Boat Inn — your canal-side local in Loughborough. Marston's ales, pub classics, quiz nights, live music. Dog and family friendly with a beer garden." />
+<!-- Phone 01509 214578 restored from canonical Website-Brief (Boat-Inn-Brief.md) — new Build-Jr brief omitted it; per "never strip verified data" rule, kept and flagged in handoff -->
+<!-- ADDRESS CONFLICT: canonical Website-Brief says 47 Canal Bank LE11 1JN (with verified lat/lon); new Build-Jr brief says Meadow Lane LE11 1JY (Marston's). Site uses new brief value. Flagged for Boss in handoff. -->
+<!-- UNVERIFIED: opening hours not provided — no hours section rendered -->
+<!-- UNVERIFIED: specific menu items not provided — generic copy only -->
+<!-- UNVERIFIED: specific quiz / live music schedule not provided — listed as on offer, no dates -->
+<style>
+  :root {
+    --green: #1f4e3d;
+    --green-deep: #112a21;
+    --amber: #c98a2b;
+    --amber-soft: #e0a960;
+    --cream: #f6efdd;
+    --cream-soft: #fbf6e8;
+    --ink: #2a2118;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", "Playfair Display", serif;
+    color: var(--green-deep);
+    line-height: 1.2;
+    margin: 0 0 0.6em;
+    font-weight: 700;
+  }
+  a { color: var(--amber); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  header {
+    background: var(--green);
+    color: var(--cream);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .brand {
+    font-family: Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+  }
+  .brand span { color: var(--amber-soft); }
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  .nav a { color: var(--cream); font-size: 0.95rem; }
+  .nav a:hover { color: var(--amber-soft); text-decoration: none; }
+
+  /* Hero — canal-side, green/amber placeholder */
+  .hero {
+    position: relative;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(201,138,43,0.35), transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(31,78,61,0.0), transparent 60%),
+      linear-gradient(135deg, var(--green-deep) 0%, var(--green) 60%, #2d6650 100%);
+    color: var(--cream);
+    padding: 5.5rem 1.5rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    /* canal-water suggestion using horizontal bands */
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 30%;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 14px),
+      linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.05));
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 820px; margin: 0 auto; z-index: 1; }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(2rem, 5.2vw, 3.4rem);
+    margin-bottom: 0.4rem;
+  }
+  .hero .tag {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--amber-soft);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero p { font-size: 1.05rem; max-width: 620px; margin: 0 auto 1.75rem; }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .badge {
+    background: rgba(246,239,221,0.12);
+    border: 1px solid rgba(246,239,221,0.3);
+    color: var(--cream);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--cream);
+    padding: 0.85rem 1.7rem;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn:hover { background: var(--amber-soft); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 4rem 1.5rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  section h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+  .rule {
+    width: 60px;
+    height: 3px;
+    background: var(--amber);
+    margin: 0 auto 2rem;
+    border: 0;
+  }
+
+  .about { background: var(--cream); }
+  .about-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .about p { font-size: 1.05rem; margin-bottom: 1rem; }
+
+  .whats-on { background: var(--cream-soft); }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    background: var(--cream);
+    border: 1px solid rgba(31,78,61,0.14);
+    border-radius: 6px;
+    padding: 1.4rem 1.25rem;
+    text-align: center;
+  }
+  .card h3 { color: var(--green); margin-bottom: 0.4rem; font-size: 1.15rem; }
+  .card p { margin: 0; }
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .food-drink { background: var(--green); color: var(--cream); }
+  .food-drink h2 { color: var(--cream); }
+  .food-drink .rule { background: var(--amber-soft); }
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 640px) {
+    .food-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .food-card {
+    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(246,239,221,0.18);
+    border-radius: 6px;
+    padding: 1.25rem 1.25rem;
+  }
+  .food-card h3 { color: var(--amber-soft); margin-bottom: 0.4rem; }
+  .food-card p { margin: 0; color: var(--cream); }
+
+  .find-us { background: var(--cream-soft); }
+  .find-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 720px) {
+    .find-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .find-details p { margin: 0.4rem 0; }
+  .find-details strong { color: var(--green-deep); }
+  .map-placeholder {
+    background: var(--green-deep);
+    color: var(--cream);
+    border-radius: 6px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    font-style: italic;
+    border: 2px solid var(--amber);
+  }
+
+  .contact { background: var(--cream); text-align: center; }
+  .contact .container { max-width: 640px; }
+  .contact p { font-size: 1.05rem; }
+  .placeholder-pill {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: rgba(31,78,61,0.08);
+    border: 1px dashed var(--green);
+    color: var(--green-deep);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+  }
+
+  footer {
+    background: var(--green-deep);
+    color: var(--cream);
+    text-align: center;
+    padding: 1.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  footer p { margin: 0.25rem 0; }
+  footer a { color: var(--amber-soft); }
+  footer .marstons { font-style: italic; opacity: 0.85; font-size: 0.85rem; }
+
+  @media (max-width: 540px) {
+    .nav ul { gap: 0.9rem; font-size: 0.9rem; }
+    section { padding: 3rem 1.25rem; }
+    .hero { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">The Boat <span>Inn</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#whats-on">What&rsquo;s On</a></li>
+      <li><a href="#food-drink">Food &amp; Drink</a></li>
+      <li><a href="#find-us">Find Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Your canal-side local in Loughborough</h1>
+    <p class="tag">A warm welcome by the water.</p>
+    <p>Marston&rsquo;s ales, pub classics, quiz nights, live music and a beer garden made for sunny afternoons.</p>
+    <div class="badges">
+      <span class="badge">Dog friendly</span>
+      <span class="badge">Family friendly</span>
+      <span class="badge">Beer garden</span>
+      <span class="badge">Quiz nights</span>
+      <span class="badge">Live music</span>
+    </div>
+    <br />
+    <a class="btn" href="tel:01509214578">Call 01509 214578</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-inner">
+    <h2>About The Boat Inn</h2>
+    <hr class="rule" />
+    <p>
+      Set on Meadow Lane right beside the canal, The Boat Inn is the kind of pub Loughborough was built around &mdash;
+      welcoming to all, easy-going, and never trying to be something it isn&rsquo;t.
+    </p>
+    <p>
+      We&rsquo;re a Marston&rsquo;s pub and a proper community local. Walk in off the towpath with the dog,
+      bring the family for Sunday, or settle in for the quiz &mdash; you&rsquo;ll get the same easy welcome.
+    </p>
+  </div>
+</section>
+
+<section class="whats-on" id="whats-on">
+  <div class="container">
+    <h2>What&rsquo;s On</h2>
+    <hr class="rule" />
+    <div class="grid-3">
+      <div class="card"><div class="icon">Q</div><h3>Quiz Nights</h3><p>Regular pub quizzes &mdash; call ahead for the next date.</p></div>
+      <div class="card"><div class="icon">&#9836;</div><h3>Live Music</h3><p>Live music nights through the year &mdash; ask at the bar.</p></div>
+      <div class="card"><div class="icon">&#127807;</div><h3>Beer Garden</h3><p>Canal-side garden &mdash; the spot when the sun&rsquo;s out.</p></div>
+      <div class="card"><div class="icon">&#128054;</div><h3>Dog Friendly</h3><p>Bring the four-legged regulars &mdash; they&rsquo;re always welcome.</p></div>
+      <div class="card"><div class="icon">&#128106;</div><h3>Family Friendly</h3><p>Kids welcome &mdash; a pub for everyone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="food-drink" id="food-drink">
+  <div class="container">
+    <h2>Food &amp; Drink</h2>
+    <hr class="rule" />
+    <div class="food-grid">
+      <div class="food-card">
+        <h3>Marston&rsquo;s Ales</h3>
+        <p>A well-kept bar with Marston&rsquo;s on tap &mdash; the way a proper pub pours them.</p>
+      </div>
+      <div class="food-card">
+        <h3>Pub Classics</h3>
+        <p>Honest pub food, done the way it should be. Pop in for the current menu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="find-us" id="find-us">
+  <div class="container">
+    <h2>Find Us</h2>
+    <hr class="rule" />
+    <div class="find-grid">
+      <div class="find-details">
+        <p><strong>Address</strong></p>
+        <p>The Boat Inn<br />Meadow Lane<br />Loughborough<br />LE11 1JY</p>
+        <p style="margin-top:1.25rem;"><strong>Phone</strong></p>
+        <p><a href="tel:01509214578">01509 214578</a></p>
+        <p style="margin-top:1.25rem;"><strong>By the canal</strong></p>
+        <p>Easy to find on the towpath &mdash; walk in or pull up off Meadow Lane.</p>
+      </div>
+      <div class="map-placeholder" aria-label="Map placeholder">
+        Google Maps placeholder &mdash; Meadow Lane, Loughborough LE11 1JY
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Pop In and See Us</h2>
+    <hr class="rule" />
+    <p>
+      The kettle&rsquo;s on &mdash; well, the tap is. Come down to Meadow Lane and say hello.
+    </p>
+    <p><a class="btn" href="tel:01509214578">Call 01509 214578</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; The Boat Inn &middot; Meadow Lane, Loughborough, LE11 1JY &middot; <a href="tel:01509214578">01509 214578</a></p>
+  <p class="marstons">A Marston&rsquo;s pub</p>
+</footer>
+
+</body>
+</html>
